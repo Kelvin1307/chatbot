@@ -33,7 +33,7 @@ app.add_middleware(
 
 prompt = ChatPromptTemplate.from_messages(
     [
-        ("system", "you are a diet specialist, give me the output accordingly"),
+        ("system", "you are a commuinication specialist, give me the output accordingly"),
         ("placeholder", "{history}"),
         ("user", "{question}")
     ]
