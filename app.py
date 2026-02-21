@@ -11,10 +11,10 @@ from pydantic import BaseModel
 
 load_dotenv()
 groq_api_key = os.getenv("GROQ_API_KEY")
-mongo_uri = os.getenv("MONGODB_URI")
+mongo_uri = os.getenv("MONGO_URI")
 
 client = MongoClient(mongo_uri)
-db = client["chat"]
+db = client["Chat"]
 collection = db["users"]
 
 app = FastAPI()
@@ -33,7 +33,7 @@ app.add_middleware(
 
 prompt = ChatPromptTemplate.from_messages(
     [
-        ("system", "you are a diet specialist, give me the output accordingly"),
+        ("system", "you are a Communication Specialist, give me the output accordingly"),
         ("placeholder", "{history}"),
         ("user", "{question}")
     ]
@@ -52,7 +52,7 @@ def get_history(user_id):
 
 @app.get("/") 
 def home():
-    return {"message": "Welcome to the Diet Specialist Chatbot API!"}
+    return {"message": "Welcome to the Communication Specialist Chatbot API!"}
 
 @app.post("/chat")
 def chat(request: ChatRequest):
