@@ -14,7 +14,11 @@ groq_api_key = os.getenv("GROQ_API_KEY")
 mongo_uri = os.getenv("MONGO_URI")
 
 client = MongoClient(mongo_uri)
+<<<<<<< HEAD
 db = client["Chat"]
+=======
+db = client["Chatbot"]
+>>>>>>> f83257f2bf6ba01121791033d89a91fd58a5ce57
 collection = db["users"]
 
 app = FastAPI()
@@ -33,7 +37,11 @@ app.add_middleware(
 
 prompt = ChatPromptTemplate.from_messages(
     [
+<<<<<<< HEAD
         ("system", "you are a Communication Specialist, give me the output accordingly"),
+=======
+        ("system", "you are a commuinication specialist, give me the output accordingly"),
+>>>>>>> f83257f2bf6ba01121791033d89a91fd58a5ce57
         ("placeholder", "{history}"),
         ("user", "{question}")
     ]
