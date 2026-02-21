@@ -11,10 +11,10 @@ from pydantic import BaseModel
 
 load_dotenv()
 groq_api_key = os.getenv("GROQ_API_KEY")
-mongo_uri = os.getenv("MONGODB_URI")
+mongo_uri = os.getenv("MONGO_URI")
 
 client = MongoClient(mongo_uri)
-db = client["chat"]
+db = client["Chatbot"]
 collection = db["users"]
 
 app = FastAPI()
